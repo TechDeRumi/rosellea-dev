@@ -1,0 +1,119 @@
+{
+  "version": 1,
+  "sdk_version": "3.0.6",
+  "path": "/mcp",
+  "auth": {
+    "type": "oauth",
+    "issuer": "https://hcyppjrojcycsxzykvyi.supabase.co/auth/v1",
+    "accepted_audiences": [
+      "authenticated"
+    ]
+  },
+  "mcp": {
+    "server": {
+      "name": "rosellea",
+      "version": "0.1.0",
+      "title": "Rosellea"
+    },
+    "tools": [
+      {
+        "name": "search_posts",
+        "title": "Search articles and books",
+        "description": "Search published Rosellea articles and books by title, optionally filtered by type.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {
+            "query": {
+              "description": "Text to match in the title. Omit to list the latest.",
+              "type": "string",
+              "maxLength": 200
+            },
+            "type": {
+              "description": "Limit to articles or books.",
+              "type": "string",
+              "enum": [
+                "article",
+                "book"
+              ]
+            },
+            "limit": {
+              "description": "Max results (default 20).",
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 50
+            }
+          },
+          "additionalProperties": false
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_post",
+        "title": "Read an article or book",
+        "description": "Get one article or book you can access, with its text (articles) or AI analysis (books).",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid",
+              "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
+              "description": "Post ID from search_posts or list_my_posts."
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": false
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_my_posts",
+        "title": "List my posts",
+        "description": "List the signed-in user's own articles and books, including drafts.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {},
+          "additionalProperties": false
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_bookmarks",
+        "title": "List my bookmarks",
+        "description": "List the articles and books the signed-in user has bookmarked.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {},
+          "additionalProperties": false
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
