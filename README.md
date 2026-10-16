@@ -1,10 +1,8 @@
 # SaiMar Books & Beyond
 
-LOVABLE AI MASTER PROMPT — SAI MAR (FINAL)
-
 🧠 PROJECT NAME:
 
-SaiMar — AI Multilingual Knowledge Platform
+Rosellea — AI Multilingual Knowledge Platform
 
 🎯 PRODUCT VISION
 
@@ -99,6 +97,8 @@ Content Types:
  📚 Book (PDF upload or long content)
 
 AI WRITING ASSISTANT:
+
+Gemini , Claude , OpenAI , Azure MCP models used
 
  Improve writing
 
@@ -445,17 +445,7 @@ Build this as a fully functional SaaS MVP with:
 
  Optimize for readability and book-like experience
 
-This project was built with [Lovable](https://lovable.dev).
-
-**Live app**: https://rosellea.lovable.app
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/6b5ce9e6-01d6-4ca3-bfd1-68e489fd41b0).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+**Live app**: https://rosellea.vercel.app
 
 ## Development
 
